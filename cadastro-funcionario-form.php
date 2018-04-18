@@ -3,7 +3,10 @@
     include_once('conecta.php');
     include_once('funcoes-database.php');
 
-    $funcionarios = buscarFuncionarios($conexao);
+    $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
+    $func = new Funcionario($conexao);
+
+    $funcionarios = $func->buscarFuncionarios();
 ?>
     <form action="cadastro-funcionario.php" method="post">
         <div class="col-md-6">
@@ -100,8 +103,8 @@
             <div class="form-group">
                 <label for="repotase">Reporta-se à</label>
                 <select name="reportase" id="reportase" class="form-control">
-                    <?php foreach ($funcionarios as $func): ?>
-                        <option value="<?=$func['IDFuncionario']?>"><?=$func['Nome'].' '.$func['Sobrenome']?></option>
+                    <?php foreach ($funcionarios as $funcionario): ?>
+                        <option value="<?=$funcionario['IDFuncionario']?>"><?=$funcionario['Nome'].' '.$funcionario['Sobrenome']?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
