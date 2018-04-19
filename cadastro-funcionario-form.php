@@ -1,12 +1,15 @@
 <?php
     include_once('cabecalho.php');
     include_once('conecta.php');
-    include_once('funcoes-database.php');
+    include_once('funcionario-database.php');
+    include_once("regiao-database.php");
 
     $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
     $func = new Funcionario($conexao);
+    $reg = new Regiao($conexao);
 
     $funcionarios = $func->buscarFuncionarios();
+    $regioes = $reg->listaRegioes();
 ?>
     <form action="cadastro-funcionario.php" method="post">
         <div class="col-md-6">
@@ -63,7 +66,11 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="regiao">Região</label>
-                <input type="text" class="form-control" id="regiao" name="regiao">
+                <select name="regiao" id="regiao" class="form-control">
+                    <?php foreach ($regioes as $regiao): ?>
+                        <option value="<?=$regiao['IDRegiao']?>"><?=$regiao['DescricaoRegiao']?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
         <div class="col-md-3">
