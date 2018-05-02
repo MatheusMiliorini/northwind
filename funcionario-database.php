@@ -26,5 +26,10 @@
             }
             return $funcionarios;  
         }
+
+        function listaFuncionario() {
+            $sql = "SELECT * FROM funcionarios";
+            return mysqli_query($this->conexao,$sql);
+        }
     } 
 ?>
