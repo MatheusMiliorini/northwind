@@ -3,6 +3,7 @@
     include_once('conecta.php');
     include_once('funcionario-database.php');
     include_once("regiao-database.php");
+    include_once("cp_input.php");
 
     $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
     $func = new Funcionario($conexao);
@@ -14,53 +15,69 @@
     <form action="cadastro-funcionario.php" method="post">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
+                <?php
+                    $input = new CpInput("nome","text","Nome");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="sobrenome">Sobrenome</label>
-                <input type="text" class="form-control" id="sobrenome" name="sobrenome" required>
-            </div>
-        </div>
-        
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="titulocortesia">Titulo Cortesia</label>
-                <input type="text" class="form-control" id="titulocortesia" name="titulocortesia">
+            <?php
+                    $input = new CpInput("sobrenome","text","Sobrenome");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         
         <div class="col-md-6">
             <div class="form-group">
-                <label for="datanascimento">Nascimento</label>
-                <input type="date" class="form-control" id="datanascimento" name="datanascimento">
+                <?php
+                    $input = new CpInput("titulo","text","Titulo");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="dataadmissao">Admissão</label>
-                <input type="date" class="form-control" id="dataadmissao" name="dataadmissao">
+                <?php
+                    $input = new CpInput("titulocortesia","text","Titulo Cortesia");
+                    echo $input->render();
+                ?>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <?php
+                    $input = new CpInput("datanascimento","date","Data de Nascimento");
+                    echo $input->render();
+                ?>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <?php
+                    $input = new CpInput("dataadmissao","date","Data de Admissão");
+                    echo $input->render();
+                ?>
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="endereco">Endereço</label>
-                <input type="text" class="form-control" id="endereco" name="endereco">
+                <?php
+                    $input = new CpInput("endereco","text","Endereço");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade" name="cidade">
+                <?php
+                    $input = new CpInput("cidade","text","Cidade");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-3">
@@ -75,34 +92,44 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="cep">CEP</label>
-                <input type="number" class="form-control" id="cep" name="cep">
+                <?php
+                    $input = new CpInput("cep","number","CEP");
+                    echo $input->render();
+                ?>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="pais">País</label>
-                <input type="text" class="form-control" id="pais" name="pais">
+                <?php
+                    $input = new CpInput("pais","text","País");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="telefoneresidencial">Telefone Residencial</label>
-                <input type="text" class="form-control" id="telefoneresidencial" name="telefoneresidencial">
+                <?php
+                    $input = new CpInput("telefoneresidencial","text","Telefone Residencial");
+                    echo $input->render();
+                ?>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="extensao">Extensão</label>
-                <input type="text" class="form-control" id="extensao" name="extensao">
+                <?php
+                    $input = new CpInput("extensao","text","Extensão");
+                    echo $input->render();
+                ?>
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
-                <label for="notas">Notas</label>
-                <input type="text" class="form-control" id="notas" name="notas">
+                <?php
+                    $input = new CpInput("notas","text","Notas");
+                    echo $input->render();
+                ?>
             </div>
         </div>
 
