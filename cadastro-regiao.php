@@ -6,7 +6,7 @@
     $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
     $reg = new Regiao($conexao);
 
-    $sucesso = $reg->addRegiao($_POST['Nome']);
+    $sucesso = $reg->addRegiao($_POST['nome']);
 
     if ($sucesso) {
         header('Location:index.php');
