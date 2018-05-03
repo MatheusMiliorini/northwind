@@ -46,7 +46,7 @@
         <td><?=$funcionario["TelefoneResidencial"]?></td>
         <td><?=$funcionario["Extensao"]?></td>
         <td><?=$funcionario["Notas"]?></td>
-        <td><?=$funcionario["Reportase"]?></td>
+        <td><?=$funcionario["reportasea"]?></td>
      
         </tr>
     </tr>
