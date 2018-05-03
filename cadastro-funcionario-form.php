@@ -4,13 +4,14 @@
     include_once('funcionario-database.php');
     include_once("regiao-database.php");
     include_once("cp_input.php");
+    include_once("territorio-database.php");
 
-    $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
+    $conexao = new BancoDeDados();
     $func = new Funcionario($conexao);
     $reg = new Regiao($conexao);
+    $ter = new Territorio($conexao);
 
     $funcionarios = $func->buscarFuncionarios();
-    $regioes = $reg->listaRegioes();
 ?>
     <form action="cadastro-funcionario.php" method="post">
         <div class="col-md-6">
@@ -84,9 +85,7 @@
             <div class="form-group">
                 <label for="regiao">Região</label>
                 <select name="regiao" id="regiao" class="form-control">
-                    <?php foreach ($regioes as $regiao): ?>
-                        <option value="<?=$regiao['IDRegiao']?>"><?=$regiao['DescricaoRegiao']?></option>
-                    <?php endforeach; ?>
+                    <?php $reg->listaRegioes($reg->buscaRegioes()); ?>
                 </select>
             </div>
         </div>
@@ -99,7 +98,15 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="territorio">Território</label>
+                <select name="territorio" id="territorio" class="form-control">
+                    <?php $ter->listaTerritorios($ter->buscaTerritorios()); ?>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
             <div class="form-group">
                 <?php
                     $input = new CpInput("pais","text","País");

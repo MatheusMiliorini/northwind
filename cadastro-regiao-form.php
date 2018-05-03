@@ -1,5 +1,5 @@
 <?php
-    include_once("cabecalho.php");
+    include_once('cabecalho.php');
     include_once("cp_input.php");
 ?>
     <form action="cadastro-regiao.php" method="POST">

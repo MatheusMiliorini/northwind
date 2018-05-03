@@ -3,12 +3,12 @@
     include_once('conecta.php');
     include_once('funcionario-database.php');
 
-    $conexao = new BancoDeDados("cloud.matheusmiliorini.com.br","northwind","essaeminhasenha","northwind");
+    $conexao = new BancoDeDados();
     $func = new Funcionario($conexao);
 ?>
 
     <table class="table table-striped table-bordered meio">
-    <h1>LISTA DE FUNCIONÁRIOS</h1>
+    <h1 class="meio">LISTA DE FUNCIONÁRIOS</h1>
     <br>
     <tr>
         <td>Nome</td>

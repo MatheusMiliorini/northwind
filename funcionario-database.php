@@ -8,11 +8,33 @@
             $this->conexao = $conexao->getCon();
         }
 
-        function inserirFuncionario($nome,$sobrenome,$titulo,$titulocortesia,$datanascimento,$dataadmissao,$endereco,$cidade,$regiao,$cep,$pais,$telefoneresidencial,$extensao,$notas,$reportase) {
+        function inserirFuncionario($nome,$sobrenome,$titulo,$titulocortesia,$datanascimento,$dataadmissao,$endereco,$cidade,$regiao,$cep,$pais,$telefoneresidencial,$extensao,$notas,$reportase,$IDTerritorio) {
             $sql = "INSERT INTO `funcionarios`(`Sobrenome`, `Nome`, `Titulo`, `TituloCortesia`, `DataNac`, `DataAdmissao`, `Endereco`, `Cidade`, `Regiao`, `Cep`, `Pais`, `TelefoneResidencial`, `Extensao`, `Notas`, `Reportase`) VALUES ('$sobrenome','$nome','$titulo','$titulocortesia','$datanascimento','$dataadmissao','$endereco','$cidade','$regiao','$cep','$pais','$telefoneresidencial','$extensao','$notas','$reportase')";
             $query = mysqli_query($this->conexao,$sql);
     
-            return $query;
+            if ($query) {
+                return $this->inserirFuncionarioTerritorio($IDTerritorio);
+            }
+        }
+
+        private function inserirFuncionarioTerritorio($IDTerritorio) {
+            $IDFuncionario = $this->getMaxID();
+            $sql = "INSERT INTO funcionarios_territorios(IDFuncionario,IDTerritorio) VALUES('$IDFuncionario','$IDTerritorio')";
+            return mysqli_query($this->conexao,$sql);
+        }
+
+        private function getMaxID() {
+            $res = array();
+
+            $sql = "SELECT MAX(IDFuncionario) AS codigo FROM funcionarios";
+            $query = mysqli_query($this->conexao,$sql);
+
+            while ($row = mysqli_fetch_assoc($query)) {
+                array_push($res,$row['codigo']);
+            }
+
+            return $res[0];
+            
         }
     
         function buscarFuncionarios() {

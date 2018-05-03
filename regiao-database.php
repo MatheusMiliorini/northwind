@@ -12,7 +12,7 @@
             return mysqli_query($this->conexao,$sql);
         }
 
-        function listaRegioes() {
+        function buscaRegioes() {
             $regioes = array();
 
             $sql = "SELECT * FROM regiao";
@@ -23,6 +23,12 @@
             }
 
             return $regioes;
+        }
+
+        function listaRegioes($regioes) {
+            foreach ($regioes as $regiao) {
+                echo "<option value=\"{$regiao['IDRegiao']}\">{$regiao['DescricaoRegiao']}</option>";
+            }
         }
     }
 ?>

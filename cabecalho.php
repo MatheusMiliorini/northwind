@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>North Wind</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/loja.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/loja.css" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -18,6 +18,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="cadastro-funcionario-form.php">Cadastro de funcionário</a></li>
                     <li><a href="cadastro-regiao-form.php">Cadastro Região</a></li>
+                    <li><a href="cadastro-territorio-form.php">Cadastro Território</a></li>
                     <li><a href="lista-funcionario.php">Lista de Funcionários</a></li>
                 </ul>
             </div>
