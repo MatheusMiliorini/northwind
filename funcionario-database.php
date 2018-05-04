@@ -70,5 +70,11 @@
             }
             return $dados[0];
         }
+
+        function updateFuncionario($IDFuncionario,$Sobrenome,$Nome,$Titulo,$TituloCortesia,$DataNac,$DataAdmissao,$Endereco,$Cidade,$Regiao,$Cep,$Pais,$TelefoneResidencial,$Extensao,$Notas,$Reportase) {
+            $sql = "UPDATE `funcionarios` SET `Sobrenome`='$Sobrenome',`Nome`='$Nome',`Titulo`='$Titulo',`TituloCortesia`='$TituloCortesia',`DataNac`='$DataNac',`DataAdmissao`='$DataAdmissao',`Endereco`='$Endereco',`Cidade`='$Cidade',`Regiao`='$Regiao',`Cep`='$Regiao',`Pais`='$Regiao',`TelefoneResidencial`='$TelefoneResidencial',`Extensao`='$Extensao',`Notas`='$Notas',`Reportase`='$Reportase' WHERE IDFuncionario='$IDFuncionario'";
+
+            return mysqli_query($this->conexao,$sql);
+        }
     } 
 ?>
