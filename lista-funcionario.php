@@ -10,23 +10,24 @@
     <table class="table table-striped table-bordered meio">
     <h1 class="meio">LISTA DE FUNCIONÁRIOS</h1>
     <br>
-    <tr>
-        <td>Nome</td>
-        <td>Sobrenome</td>
-        <td>Titulo</td>
-        <td>Titulo Cortesia</td>
-        <td>Nacimento</td>
-        <td>Admissão</td>
-        <td>Endereço</td>
-        <td>Cidade</td>
-        <td>Região</td>
-        <td>CEP</td>
-        <td>País</td>
-        <td>Telefone Residencial</td>
-        <td>Extensão</td>
-        <td>Notas</td>
-        <td>Reportase à</td>
-    </tr>
+    <thead>
+        <th class="meio">Nome</th>
+        <th class="meio">Sobrenome</th>
+        <th class="meio">Titulo</th>
+        <th class="meio">Titulo Cortesia</th>
+        <th class="meio">Nacimento</th>
+        <th class="meio">Admissão</th>
+        <th class="meio">Endereço</th>
+        <th class="meio">Cidade</th>
+        <th class="meio">Região</th>
+        <th class="meio">CEP</th>
+        <th class="meio">País</th>
+        <th class="meio">Telefone Residencial</th>
+        <th class="meio">Extensão</th>
+        <th class="meio">Notas</th>
+        <th class="meio">Reportase à</th>
+        <th class="meio" colspan="2">Editar</th>
+    </thead>
     <?php
         $funcionarios = $func->listaFuncionario();
         foreach ($funcionarios as $funcionario):
@@ -47,6 +48,8 @@
         <td><?=$funcionario["Extensao"]?></td>
         <td><?=$funcionario["Notas"]?></td>
         <td><?=$funcionario["reportasea"]?></td>
+        <td><a href="remove-funcionario.php?ID=<?=$funcionario['IDFuncionario']?>">Remover</a></td>
+        <td><a href="altera-funcionario-form.php?ID=<?=$funcionario['IDFuncionario']?>">Alterar</a></td>
      
         </tr>
     </tr>

@@ -53,5 +53,22 @@
             $sql = "SELECT fun.*,fun2.Nome AS reportasea FROM funcionarios fun JOIN funcionarios fun2 ON fun.Reportase = fun2.IDFuncionario";
             return mysqli_query($this->conexao,$sql);
         }
+
+        function removeFuncionario($IDFuncionario) {
+            $sql = "DELETE FROM funcionarios WHERE IDFuncionario='$IDFuncionario'";
+            return mysqli_query($this->conexao,$sql);
+        }
+
+        function buscarInfoFuncionario($IDFuncionario) {
+            $dados = array();  
+
+            $sql = "SELECT * FROM funcionarios WHERE IDFuncionario='$IDFuncionario'";
+            $query = mysqli_query($this->conexao,$sql);
+            
+            while ($row = mysqli_fetch_assoc($query)) {
+                array_push($dados,$row);
+            }
+            return $dados[0];
+        }
     } 
 ?>

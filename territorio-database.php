@@ -30,5 +30,15 @@
                 echo "<option value=\"{$territorio['IDTerritorio']}\">{$territorio['DescricaoTerritorio']}</option>";
             }
         }
+
+        function removeTerritorio($IDTerritorio) {
+            $sql = "DELETE FROM territorios WHERE IDTerritorio='$IDTerritorio'";
+            return mysqli_query($this->conexao,$sql);
+        }
+
+        function updateTerritorio($IDTerritorio,$DescricaoTerritorio,$IDRegiao) {
+            $sql = "UPDATE territorios SET DescricaoTerritorio='$DescricaoTerritorio',IDRegiao='$IDRegiao' WHERE IDTerritorio='$IDTerritorio'";
+            return mysqli_query($this->conexao,$sql);
+        }
     }
 ?>
