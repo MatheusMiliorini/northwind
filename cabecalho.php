@@ -32,6 +32,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Território<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="cadastro-territorio-form.php">Cadastro Território</a></li>
+                            <li><a href="lista-territorios.php">Listar Territórios</a></li>
                         </ul>
                     </li>
                     <li><a href="lista-funcionario.php">Lista de Funcionários</a></li>
