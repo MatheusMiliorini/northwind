@@ -30,5 +30,15 @@
                 echo "<option value=\"{$regiao['IDRegiao']}\">{$regiao['DescricaoRegiao']}</option>";
             }
         }
+
+        function removeRegiao($id) {
+            $sql = "DELETE FROM regiao WHERE IDRegiao='$id'";
+            return mysqli_query($this->conexao,$sql);
+        }
+
+        function updateRegiao($IDRegiao,$nome) {
+            $sql = "UPDATE regiao SET DescricaoRegiao='$nome' WHERE IDRegiao='$IDRegiao'";
+            return mysqli_query($this->conexao,$sql);
+        }
     }
 ?>
