@@ -50,7 +50,7 @@
         }
 
         function listaFuncionario() {
-            $sql = "SELECT fun.*,fun2.Nome AS reportasea FROM funcionarios fun JOIN funcionarios fun2 ON fun.Reportase = fun2.IDFuncionario";
+            $sql = "SELECT fun.*,fun2.Nome AS reportasea FROM funcionarios fun LEFT JOIN funcionarios fun2 ON fun.Reportase = fun2.IDFuncionario";
             return mysqli_query($this->conexao,$sql);
         }
 
